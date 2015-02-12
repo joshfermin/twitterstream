@@ -14,14 +14,17 @@ module.exports = function(app) {
 
 	var stream = T.stream('statuses/sample')
 	stream.on('tweet', function(tweet){
-		console.log(tweet);
+		// filter tweets that have geo location and are in english
+		if(tweet.geo != null && tweet.lang=="en"){
+			console.log(tweet)
+		}
 	})
 
-	app.get('/', function(req,res){
-		T.get('search/tweets', {q: 'banana since:2011-11-11', count: 100}, function(err, data, response){
-			res.send(data);
-		})
-	});
+	// app.get('/', function(req,res){
+	// 	T.get('search/tweets', {q: 'banana since:2011-11-11', count: 100}, function(err, data, response){
+	// 		res.send(data);
+	// 	})
+	// });
 
 
 }
