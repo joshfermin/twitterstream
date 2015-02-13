@@ -1,5 +1,6 @@
 var Twit 	 = require('twit'), // wrapper on top of twitter api
-	dotenv	 = require('dotenv'); // used for keys -> get from .env
+	dotenv	 = require('dotenv'), // used for keys -> get from .env
+	sentiment = require('sentiment'); 
 
 module.exports = function(app) {
 	dotenv.load();
@@ -16,7 +17,10 @@ module.exports = function(app) {
 	stream.on('tweet', function(tweet){
 		// filter tweets that have geo location and are in english
 		if(tweet.geo != null && tweet.lang=="en"){
-			console.log(tweet)
+			console.log(tweet.text);
+			var sentimentAnalysis = sentiment(tweet.text);
+			console.log(sentimentAnalysis);
+			console.log("\n")
 		}
 	})
 
