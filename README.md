@@ -10,12 +10,12 @@ TWITTER_ACCESS_TOKEN=xxxx
 TWITTER_ACCESS_KEY=xxxx
 ```
 
-Install dependencies
+Install dependencies:
 ```
 npm install
 ```
 
-Start server and you should see incoming tweets. See routes.js to see what is streaming.
+Start server and you should see incoming tweets and their sentiment analysis printing to the console.
 ```
 npm start
 ```
