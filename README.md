@@ -2,7 +2,7 @@
 Simple express app that streams in a sample of live tweets and performs sentiment analysis on them. Implemented using Node.js and Express.
 
 ## To Run: 
- Add a file name ".env" that contains your twitter API keys in the root directory. It should be in the following format:
+ Add a file named ".env" that contains your twitter API keys in the root directory. It should be in the following format:
 ```
 TWITTER_CONSUMER_KEY=xxxx
 TWITTER_SECRET_KEY=xxxx
