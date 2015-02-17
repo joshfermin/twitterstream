@@ -1,5 +1,5 @@
 # twitterstream
-Simple express app that streams in a sample of live tweets and performs sentiment analysis on them. Implemented using Node.js and Express.
+Simple express app that streams in a sample of live tweets, these tweets are then run through a 3rd party sentiment analysis library and given a score Implemented using Node.js and Express.
 
 ## To Run: 
  Add a file named ".env" that contains your twitter API keys in the root directory. It should be in the following format:
