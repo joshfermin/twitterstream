@@ -17,11 +17,13 @@ module.exports = function(app) {
 	var stream = T.stream('statuses/sample')
 	stream.on('tweet', function(tweet){
 		// filter tweets that have geo location and are in english
-		if(tweet.geo != null && tweet.lang=="en" && ((tweet.geo.coordinates[0] >= -90 && tweet.geo.coordinates[0] <= 90)&&(tweet.geo.coordinates[1] >= -90 && tweet.geo.coordinates[1] <= 90))){
+		if(tweet.geo != null && tweet.lang=="en" && 
+			(((tweet.geo.coordinates[0] >= -180 && tweet.geo.coordinates[0] <= -90)||(tweet.geo.coordinates[0] >= 90 && tweet.geo.coordinates[0] <= 180))
+			||((tweet.geo.coordinates[1] >= 90 && tweet.geo.coordinates[1] <= 180) || (tweet.geo.coordinates[1] >= -180 && tweet.geo.coordinates[1] <= -90)))){
 			var obj = JSON.stringify(tweet);
 			fs.appendFile('tweets.json', obj+",\n", function(err){
 				if(err) throw err;
-				console.log("SUCCUESSSS!!!!");
+				console.log("Success! Time: " + tweet.created_at);
 			})
 		}
 	})
